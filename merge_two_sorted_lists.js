@@ -23,14 +23,11 @@ const mergeTwoLists = function (l1, l2) {
 
     if (l1 && l2) {
       nextNode = Math.min(l1.val, l2.val) === l1.val ? l1 : l2;
-      if (nextNode === l1) l1 = l1.next; 
-      if (nextNode === l2) l2 = l2.next; 
     } else {
       nextNode = l1 ? l1 : l2; 
-      if (nextNode === l1) l1 = l1.next;
-      if (nextNode === l2) l2 = l2.next; 
     }
 
+    (nextNode === l1) ? l1 = l1.next : l2 = l2.next; 
     currNode.next = nextNode; 
     currNode = currNode.next; 
   }
