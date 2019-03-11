@@ -18,7 +18,7 @@ const addTwoNumbers = function (l1, l2) {
   let carryOver = 0; 
   let sum = 0; 
 
-  if (l1 || l2 || sum > 0) {
+  while (l1 || l2 || sum > 0) {
     if (l1) {
       sum += l1.val; 
       l1 = l1.next; 
@@ -29,7 +29,7 @@ const addTwoNumbers = function (l1, l2) {
       l2 = l2.next; 
     }
 
-    if (sum > 10) {
+    if (sum >= 10) {
       carryOver = 1; 
       sum = sum - 10; 
     }
