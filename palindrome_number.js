@@ -20,8 +20,8 @@ const isPalindrome = function (int) {
   const digits = getDigits(int); 
 
   for (let i = 0; i < Math.floor(digits.length/2); i++) {
-    let mirrorIdx = digits.length - i; 
-    if (digits[i] !== digis[mirrorIdx]) return false;
+    let mirrorIdx = digits.length - i - 1; 
+    if (digits[i] !== digits[mirrorIdx]) return false;
   }
 
   return true; 
