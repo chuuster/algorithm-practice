@@ -1,14 +1,19 @@
 // https://leetcode.com/problems/min-stack/
 
 class MinStack {
-  constructor(store = []) {
-    this.store = store; 
-    this.size = store.length; 
-    (this.size === 0) ? this.min = null : this.min = Math.min(...store);
+  constructor() {
+    this.store = []; 
+    this.size = 0; 
+    this.min = []; 
   }
 
   push(x) {
-    if (x < this.min) this.min = x; 
+    if (this.min.length !== 0) {
+      if (x <= this.min[this.min.length - 1]) this.min.push(x);
+    } else {
+      this.min.push(x); 
+    }
+
     this.store.push(x);
     this.size += 1;  
     return this; 
@@ -16,7 +21,7 @@ class MinStack {
 
   pop() {
     const popped = this.store.pop();
-    if (popped === this.min) this.min = Math.min(...this.store); 
+    if (popped === this.min[this.min.length - 1]) this.min.pop();  
     this.size -= 1; 
     return this;
   }
@@ -26,6 +31,6 @@ class MinStack {
   }
 
   getMin() {
-    return this.min; 
+    return this.min[this.min.length - 1];
   }
 }
