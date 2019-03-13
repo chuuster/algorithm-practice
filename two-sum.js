@@ -14,3 +14,19 @@ const twoSum = function (nums, target) {
 
   return false;
 };
+
+const twoSumSorted = function (nums, target) {
+  let i = 0;
+  let j = nums.length - 1;
+
+  while (j > i) {
+    let sum = nums[i] + nums[j];
+    if (sum === target) return [i + 1, j + 1];
+    if (sum < target) i++;
+    if (sum > target) j--;
+  }
+};
+
+const twoSumBST = function(root, target) {
+
+};
